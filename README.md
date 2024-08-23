@@ -24,7 +24,7 @@ Script for installing Guacamole 1.5.5 on Ubuntu 16.04 or newer (with MySQL, or r
 
 Run script, enter MySQL Root Password and Guacamole User password. Guacamole User is used to connect to the Guacamole Database. Be sure to save these!
 
-The script attempts to install `tomcat9` by default (it will fall back on `tomcat8` **if the available version is 8.5.x or newer**, otherwise it will fall back to `tomcat7`). If you want to manually specify a tomcat version there's a commented out line you can modify. Have at it.
+The script attempts to install `tomcat10` by default (it will fall back on `tomcat9` then `tomcat8` **if the available version is 8.5.x or newer**, otherwise it will fall back to `tomcat7`). If you want to manually specify a tomcat version there's a commented out line you can modify. Have at it.
 
 ## MFA/2FA
 
@@ -67,7 +67,7 @@ The default credentials are `guacadmin` as both username and password. Please ch
 
 Script for upgrading currently installed Guacamole instance (previously installed via this script/guide).  This will also now update the TOTP or Duo extensions if used.
 
-If looks for the tomcat folder in /etc/ (E.G. `/etc/tomcat7` or `/etc/tomcat8`) hopefully that works to identify the correct tomcat version/path :smile: I'm open to suggestions/pull requests for a cleaner method.
+If looks for the tomcat folder in /etc/ (E.G. `/etc/tomcat10` or `/etc/tomcat9`) hopefully that works to identify the correct tomcat version/path :smile: I'm open to suggestions/pull requests for a cleaner method.
 
 ## All Switches
 
@@ -169,7 +169,7 @@ For Apache:
 
 ## NOTE: SSH doesnt work with Ubuntu 22.04:
 
-Guacamole only supports ssh-dss and ssh-rsa, and both have been disabled in Ubuntu 22.04.
+Guacamole only supports ssh-dss and ssh-rsa, and both have been disabled in Ubuntu 22.04+.
 
 In the meantime a workaround is adding ```HostKeyAlgorithms +ssh-rsa``` to the end of ``` /etc/ssh/sshd_config ``` on the Ubuntu machine and restart sshd. 
 
